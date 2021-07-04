@@ -10,5 +10,6 @@ namespace MusicShop.Models.Entities
         
         public Guid BandId { get; set; }
         public Band Band { get; set;  }
+        public ECategory Category { get; set; }
     }
 }

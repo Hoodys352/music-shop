@@ -17,5 +17,6 @@ namespace MusicShop.Models.Entities
         [Column(TypeName = "int")]
         [Range(0, int.MaxValue)]
         public int Price { get; set; }
+        public string FileName { get; set; }
     }
 }
