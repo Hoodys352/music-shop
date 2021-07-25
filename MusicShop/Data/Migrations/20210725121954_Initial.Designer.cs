@@ -10,8 +10,8 @@ using MusicShop.Data;
 namespace MusicShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210519211641_Band,Product,Album")]
-    partial class BandProductAlbum
+    [Migration("20210725121954_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
