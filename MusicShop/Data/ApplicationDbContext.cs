@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MusicShop.Models.Entities;
 
 namespace MusicShop.Data
 {
@@ -9,5 +10,8 @@ namespace MusicShop.Data
             : base(options)
         {
         }
+
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Band> Bands { get; set; }
     }
 }
