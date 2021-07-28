@@ -37,6 +37,7 @@ namespace MusicShop
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IBandRepository, BandRepository>();
             services.AddScoped<IAlbumRepository, AlbumRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }

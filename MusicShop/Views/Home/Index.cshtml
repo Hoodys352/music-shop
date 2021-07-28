@@ -7,13 +7,14 @@
     <div class="row">
         @foreach (var album in Model)
         {
-        <div class="col-lg-4 col-sm-12 mb-5">
+        <div class="col-lg-4 col-sm-12 mb-5 text-dark">
             <div class="card rounded-0" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="~/images/@album.ImageName" class="card-img-top" alt="@album.Name cover">
                 <div class="card-body">
                     <h5 class="card-title">@album.Name</h5>
-                    <p class="card-text">@album.ReleaseDate</p>
-                    <a href="#" class="btn btn-primary">Find out more !</a>
+                    <p class="card-text">Released : @album.ReleaseDate.Year</p>
+                    <a asp-controller="Album" asp-action="Index" asp-route-Id="@album.Id" 
+                       class="btn btn-warning rounded-0">Find out more !</a>
                 </div>
             </div>
         </div>

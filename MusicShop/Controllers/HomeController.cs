@@ -13,16 +13,16 @@ namespace MusicShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IAlbumRepository albumRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public HomeController(IAlbumRepository albumRepository)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            this.albumRepository = albumRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<IActionResult> Index()
         {
-            var albums = await albumRepository.GetAll();
+            var albums = await unitOfWork.Albums.GetAll();
             return View(albums);
         }
 

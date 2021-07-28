@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MusicShop.Models.Entities
@@ -10,6 +11,8 @@ namespace MusicShop.Models.Entities
         
         [Column(TypeName = "Date")]
         public DateTime ReleaseDate { get; set; }
+
+        public string ImageName { get; set; }
 
         public Guid BandId { get; set; }
         public Band Band { get; set; }
