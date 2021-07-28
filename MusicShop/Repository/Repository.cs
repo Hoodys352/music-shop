@@ -1,4 +1,5 @@
-﻿using MusicShop.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MusicShop.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,28 @@ namespace MusicShop.Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext context;
+        private readonly DbSet<T> entities;
 
         public Repository(ApplicationDbContext context)
         {
             this.context = context;
+            entities = context.Set<T>();
         }
 
-        public Task<T> FindByName(string name)
+        public async Task<T> Find(Guid Id)
         {
-            return null;
+            return await entities.FindAsync(Id);
         }
 
-        public Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            return null;
+            return await entities.ToListAsync();
         }
+
+        public void Add(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

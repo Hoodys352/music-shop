@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MusicShop.Models;
+using MusicShop.Models.Entities;
+using MusicShop.Repository;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,12 +13,20 @@ namespace MusicShop.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IAlbumRepository albumRepository;
+
+        public HomeController(IAlbumRepository albumRepository)
         {
-            return View();
+            this.albumRepository = albumRepository;
         }
 
-        public IActionResult SearchResult(LayoutViewModel lm)
+        public async Task<IActionResult> Index()
+        {
+            var albums = await albumRepository.GetAll();
+            return View(albums);
+        }
+
+        public IActionResult SearchResult()
         {
             return View();
         }

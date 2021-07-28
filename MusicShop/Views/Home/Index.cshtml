@@ -1,3 +1,22 @@
-﻿@{
+﻿@model IEnumerable<MusicShop.Models.Entities.Album>
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="container">
+    <div class="row">
+        @foreach (var album in Model)
+        {
+        <div class="col-lg-4 col-sm-12 mb-5">
+            <div class="card rounded-0" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@album.Name</h5>
+                    <p class="card-text">@album.ReleaseDate</p>
+                    <a href="#" class="btn btn-primary">Find out more !</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
