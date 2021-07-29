@@ -11,7 +11,13 @@
         </div>
         <div class="col-6 text-center" style="background-color: palevioletred;">
             <h1>@Model.Name</h1>
-            <h2>By <a>@Model.Band.Name</a> </h2>
+            <h2>By 
+                <a asp-controller="Band" 
+                      asp-action="Index" 
+                      asp-route-Id="@Model.BandId">
+                    @Model.Band.Name
+                </a> 
+            </h2>
             <h3 class="font-italic text-secondary">Released @Model.ReleaseDate.Year</h3>
         </div>
     </div>

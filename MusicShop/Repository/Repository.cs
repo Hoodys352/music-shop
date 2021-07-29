@@ -3,6 +3,7 @@ using MusicShop.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MusicShop.Repository
@@ -23,9 +24,14 @@ namespace MusicShop.Repository
             return await entities.FindAsync(Id);
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return await entities.ToListAsync();
+            IQueryable<T> query = entities;
+            if(filter != null)
+            {
+                query = query.Where(filter);
+            }
+            return await query.ToListAsync();
         }
 
         public void Add(T entity)

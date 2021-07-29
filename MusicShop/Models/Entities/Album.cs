@@ -6,8 +6,10 @@ namespace MusicShop.Models.Entities
 {
     public class Album
     {
-        public Guid Id { get; set; } = new Guid();
+        public Guid Id { get; set; }
         public string Name { get; set; }
+
+        public decimal Price { get; set; }
         
         [Column(TypeName = "Date")]
         public DateTime ReleaseDate { get; set; }

@@ -1,0 +1,9 @@
+﻿@model MusicShop.Models.Entities.Band
+
+<h1>@Model.Name</h1>
+<h2>List of @Model.Name's all albums : </h2>
+@foreach(var album in Model.Albums)
+            {
+                <h3>@album.Name</h3>
+                <h4>@album.ReleaseDate.Year</h4>
+            }
