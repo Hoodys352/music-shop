@@ -10,6 +10,6 @@ namespace MusicShop.Repository
     {
         Task<T> Find(Guid Id);
         Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter = null);
-        void Add(T entity);
+        Task Add(T entity);
     }
 }

@@ -34,9 +34,9 @@ namespace MusicShop.Repository
             return await query.ToListAsync();
         }
 
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-            throw new NotImplementedException();
+            await entities.AddAsync(entity);
         }
 
     }

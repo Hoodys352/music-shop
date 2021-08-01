@@ -1,0 +1,34 @@
+﻿@model MusicShop.Models.AlbumViewModel
+
+
+<div class="row justify-content-center text-center mt-5">
+    <div class="col-md-4">
+        <section>
+            <form asp-controller="Album" asp-action="Add" method="post">
+                <div class="form-group text-left text-warning">
+                    <label asp-for="@Model.Album.Name"></label>
+                    <input asp-for="@Model.Album.Name" class="form-control rounded-0" placeholder="Name" />
+                    <span asp-validation-for="@Model.Album." class="text-danger"></span>
+                </div>
+                <div class="form-group text-left text-warning">
+                    <label asp-for="@Model.Album.ReleaseDate"></label>
+                    <input asp-for="@Model.Album.ReleaseDate" class="form-control rounded-0" />
+                    <span asp-validation-for="@Model.Album.ReleaseDate" class="text-danger"></span>
+                </div>
+                <div class="form-group text-left text-warning">
+                    <label asp-for="@Model.Album.Price"></label>
+                    <input asp-for="@Model.Album.Price" class="form-control rounded-0" placeholder="Price" />
+                    <span asp-validation-for="@Model.Album.Price" class="text-danger"></span>
+                </div>
+                <div class="form-group text-left text-warning">
+                    @Html.DropDownListFor(m => m.Album.BandId, Model.BandList, "Select band"
+                   , new { @class = "form-control"})
+                    <span asp-validation-for="Album.BandId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-success rounded-0">Add album</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
