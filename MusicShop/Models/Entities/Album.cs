@@ -28,5 +28,8 @@ namespace MusicShop.Models.Entities
         //Fully-defined relationship with Band
         public Guid BandId { get; set; }
         public Band Band { get; set; }
+
+        //One-to-one relationship with Tracklist
+        public Tracklist Tracklist { get; set; }
     }
 }
