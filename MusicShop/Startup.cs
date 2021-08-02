@@ -36,6 +36,7 @@ namespace MusicShop
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IBandRepository, BandRepository>();
+            services.AddScoped<ITracklistRepository, TracklistRepository>();
             services.AddScoped<IAlbumRepository, AlbumRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();

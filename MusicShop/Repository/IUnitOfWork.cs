@@ -9,6 +9,7 @@ namespace MusicShop.Repository
     {
         IBandRepository Bands { get; }
         IAlbumRepository Albums { get; }
+        ITracklistRepository Tracklists { get; }
         Task<int> Complete();
     }
 }

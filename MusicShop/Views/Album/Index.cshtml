@@ -19,6 +19,23 @@
                 </a> 
             </h2>
             <h3 class="font-italic text-secondary">Released @Model.ReleaseDate.Year</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Length</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var song in Model.Tracklist.Songs)
+                    {
+                        <tr>
+                            <td>@song.Name</td>
+                            <td>@song.Length</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

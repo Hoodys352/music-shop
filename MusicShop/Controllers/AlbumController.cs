@@ -34,7 +34,7 @@ namespace MusicShop.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddAsync()
+        public async Task<IActionResult> Add()
         {
             var bandList = await unitOfWork.Bands.GetAll();
             var albumViewModel = new AlbumViewModel

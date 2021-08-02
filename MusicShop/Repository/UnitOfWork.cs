@@ -12,19 +12,22 @@ namespace MusicShop.Repository
         public IBandRepository Bands { get; }
 
         public IAlbumRepository Albums { get; }
+        public ITracklistRepository Tracklists { get; }
 
         public UnitOfWork(ApplicationDbContext context
             ,IBandRepository bandRepository
-            ,IAlbumRepository albumRepository)
+            ,IAlbumRepository albumRepository
+            ,ITracklistRepository tracklistRepository)
         {
             this.context = context;
             Bands = bandRepository;
             Albums = albumRepository;
+            Tracklists = tracklistRepository;
         }
 
-        public Task<int> Complete()
+        public async Task<int> Complete()
         {
-            return context.SaveChangesAsync();
+            return await context.SaveChangesAsync();
         }
 
         public void Dispose()
